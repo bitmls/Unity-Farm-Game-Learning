@@ -7,17 +7,19 @@ public class PlotManager : MonoBehaviour
 {
     private bool isPlanted = false;
 
-    public SpriteRenderer plant;
-    public Sprite[] plantStages;
+    private SpriteRenderer plant;
+    private BoxCollider2D plantCollider;
+
     private int plantStage = 0;
 
-    [SerializeField]
-    private float growthDuration = 2.0f;
     private float growthTimer = 0;
+
+    public PlantObject selectedPlant;
 
     void Start()
     {
-
+        plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -31,9 +33,9 @@ public class PlotManager : MonoBehaviour
         {
             growthTimer -= Time.deltaTime;
 
-            if (growthTimer < 0 && plantStage < plantStages.Length - 1)
+            if (growthTimer < 0 && plantStage < selectedPlant.plantStages.Length - 1)
             {
-                growthTimer = growthDuration;
+                growthTimer = selectedPlant.growthDuration;
                 plantStage++;
                 ChangePlantStage();
             }
@@ -44,7 +46,7 @@ public class PlotManager : MonoBehaviour
     {
         if (isPlanted)
         {
-            if (plantStage == plantStages.Length - 1)
+            if (plantStage == selectedPlant.plantStages.Length - 1)
             {
                 Harvest();
             }
@@ -68,12 +70,14 @@ public class PlotManager : MonoBehaviour
         isPlanted = true;
         plantStage = 0;
         ChangePlantStage();
-        growthTimer = growthDuration;
+        growthTimer = selectedPlant.growthDuration;
         plant.gameObject.SetActive(true);
     }
 
     private void ChangePlantStage()
     {
-        plant.sprite = plantStages[plantStage];
+        plant.sprite = selectedPlant.plantStages[plantStage];
+        plantCollider.size = plant.sprite.bounds.size;
+        plantCollider.offset = new Vector2(0, plant.bounds.size.y / 2);
     }
 }
