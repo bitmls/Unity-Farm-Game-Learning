@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 590914e371a6f304b9874dd05bf5f1bb, type: 3}
-  m_Name: Tomato
+  m_Name: 3-Tomato
   m_EditorClassIdentifier: 
   plantName: Tomato
   plantStages:
@@ -18,4 +18,7 @@ MonoBehaviour:
   - {fileID: 67104918, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
   - {fileID: 452792062, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
   - {fileID: -732065803, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
-  growthDuration: 4
+  growthDuration: 8
+  buyPrice: 30
+  sellPrice: 75
+  icon: {fileID: -1710101832, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}

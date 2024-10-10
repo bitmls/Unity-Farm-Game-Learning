@@ -232,6 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedPlant: {fileID: 11400000, guid: 35ae59d5ccbc4db43926395884019985, type: 2}
+  availableColor: {r: 0.38551012, g: 0.9169811, b: 0.22665003, a: 1}
+  unavailableColor: {r: 0.8792453, g: 0.23723029, b: 0.23723029, a: 1}
 --- !u!114 &2330037257165564564
 MonoBehaviour:
   m_ObjectHideFlags: 0

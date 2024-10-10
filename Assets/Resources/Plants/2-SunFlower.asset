@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 590914e371a6f304b9874dd05bf5f1bb, type: 3}
-  m_Name: SunFlower
+  m_Name: 2-SunFlower
   m_EditorClassIdentifier: 
-  plantName: SunFlower
+  plantName: Sun Flower
   plantStages:
   - {fileID: 1980755776, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
   - {fileID: 1077217611, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
   - {fileID: 330288538, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
   - {fileID: -947208509, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
-  growthDuration: 8
+  growthDuration: 4
+  buyPrice: 20
+  sellPrice: 45
+  icon: {fileID: 1020277922, guid: c0b0ab43b2dbc8847bf71a1936c2fce4, type: 3}
