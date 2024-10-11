@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FarmManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class FarmManager : MonoBehaviour
     // 1- water 2- Fertilizer 3- Buy Plot
     public int selectedTool = 0;
 
+    public Image[] buttonImages;
+    public Sprite normalButton;
+    public Sprite selectedButton;
+
     void Start()
     {
         moneyText.text = "$" + money;
@@ -28,19 +33,11 @@ public class FarmManager : MonoBehaviour
     {
         if (selectedPlant == newPlant)
         {
-            selectedPlant.buttonImage.color = buyColor;
-            selectedPlant.buttonText.text = "CHOOSE";
-
-            selectedPlant = null;
-            isPlanting = false;
+            CheckSelection();
         }
         else
         {
-            if (selectedPlant != null)
-            {
-                selectedPlant.buttonImage.color = buyColor;
-                selectedPlant.buttonText.text = "CHOOSE";
-            }
+            CheckSelection();
 
             selectedPlant = newPlant;
             isPlanting = true;
@@ -60,17 +57,20 @@ public class FarmManager : MonoBehaviour
     {
         if (toolNumber == selectedTool)
         {
-
+            CheckSelection();
         }
         else
         {
             CheckSelection();
+            isToolSelecting = true;
+            selectedTool = toolNumber;
+            buttonImages[selectedTool - 1].sprite = selectedButton;
         }
     }
 
     private void CheckSelection()
     {
-        if(isPlanting)
+        if (isPlanting)
         {
             isPlanting = false;
             if (selectedPlant != null)
@@ -80,9 +80,14 @@ public class FarmManager : MonoBehaviour
                 selectedPlant = null;
             }
         }
-        if(isToolSelecting)
+        if (isToolSelecting)
         {
-
+            if (selectedTool > 0)
+            {
+                buttonImages[selectedTool - 1].sprite = normalButton;
+            }
+            isToolSelecting = false;
+            selectedTool = 0;
         }
     }
 }
